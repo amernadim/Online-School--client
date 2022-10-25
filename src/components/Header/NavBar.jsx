@@ -58,7 +58,7 @@ const NavBar = () => {
         </div>
 
         <Link to="/login" className="items-center flex-shrink-0 hidden lg:flex">
-          <button className="px-8  font-semibold rounded bg-blue-400 text-gray-900 btn-sm">
+          <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
             Log in
           </button>
         </Link>
@@ -66,6 +66,21 @@ const NavBar = () => {
         <Link to="#" className="items-center flex-shrink-0 hidden lg:flex">
           <img className="h-8 rounded-lg" src={logo} alt="" title="Name" />
         </Link>
+
+        <div className="items-center flex-shrink-0 hidden lg:flex">
+          <label
+            for="Toggle1"
+            className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
+          >
+            <span className="font-semibold">Light</span>
+            <span className="relative">
+              <input id="Toggle1" type="checkbox" className="hidden peer" />
+              <div className="w-10 h-6 rounded-full shadow-inner bg-gray-400 peer-checked:dark:bg-violet-400"></div>
+              <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-800"></div>
+            </span>
+            <span className="font-semibold">Dark</span>
+          </label>
+        </div>
 
         <div className="p-4 lg:hidden">
           <button
@@ -118,7 +133,6 @@ const NavBar = () => {
                 </div>
                 <nav>
                   <ul className="space-y-4">
-                   
                     <li className="flex">
                       <Link
                         rel="noopener noreferrer"
@@ -157,31 +171,47 @@ const NavBar = () => {
                     </li>
                     <li className="flex">
                       <Link
-                       rel="noopener noreferrer"
+                        rel="noopener noreferrer"
                         to="/login"
                         className="items-center"
                       >
-                        <button className="px-8  font-semibold rounded bg-blue-400 text-gray-900 btn-sm">
+                        <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
                           Log in
                         </button>
-                        
                       </Link>
-                     
                     </li>
 
                     <li className="flex">
                       <Link
-                       rel="noopener noreferrer"
+                        rel="noopener noreferrer"
                         to="/home"
                         className="items-center"
                       >
                         <img
                           className="h-8 rounded-lg"
                           src={logo}
-                          alt=""
+                          alt="#"
                           title="Name"
                         />
                       </Link>
+                    </li>
+                    <li>
+                      <label
+                        for="Toggle1"
+                        className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
+                      >
+                        <span className="font-semibold">Light</span>
+                        <span className="relative">
+                          <input
+                            id="Toggle1"
+                            type="checkbox"
+                            className="hidden peer"
+                          />
+                          <div className="w-10 h-6 rounded-full shadow-inner bg-gray-400 peer-checked:dark:bg-violet-400"></div>
+                          <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-800"></div>
+                        </span>
+                        <span className="font-semibold">Dark</span>
+                      </label>
                     </li>
                   </ul>
                 </nav>
