@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { PrinterIcon } from '@heroicons/react/24/solid'
+import { PrinterIcon } from '@heroicons/react/24/solid';
+
+
+
 
 const CourseDetails = () => {
   const course = useLoaderData();
@@ -9,7 +12,7 @@ const CourseDetails = () => {
   const { id, title, img, fee, desciption, video } = course;
   return (
     <div className="w-10/12 mx-auto mt-[95px]">
-    
+      <div>
       <h2 className="text-3xl font-semibold text-center">
         Course Name : {title}
       </h2>
@@ -30,8 +33,11 @@ const CourseDetails = () => {
           </Link>
         </div>
       </div>
+      </div>
     </div>
   );
 };
 
 export default CourseDetails;
+
+
