@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleCourse = ({ course }) => {
-  console.log(course);
+  // console.log(course);
   const { id, title, img, fee, desciption, video } = course;
 
   return (
@@ -10,7 +10,7 @@ const SingleCourse = ({ course }) => {
     <div>
       <ul>
         <li className="mt-4 font-bold text-center">
-          <Link to="">{title}</Link>
+          <Link to={`/details/${id}`}>{title}</Link>
         </li>
       </ul>
     </div>
