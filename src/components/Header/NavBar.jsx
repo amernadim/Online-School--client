@@ -69,7 +69,7 @@ const NavBar = () => {
 
         <div className="items-center flex-shrink-0 hidden lg:flex">
           <label
-            for="Toggle1"
+            htmlFor="Toggle1"
             className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
           >
             <span className="font-semibold">Light</span>
@@ -197,7 +197,7 @@ const NavBar = () => {
                     </li>
                     <li>
                       <label
-                        for="Toggle1"
+                        htmlFor="Toggle1"
                         className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
                       >
                         <span className="font-semibold">Light</span>
