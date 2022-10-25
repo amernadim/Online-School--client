@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Register = () => {
   const { createUser,updateUserProfile} = useContext(AuthContext)
@@ -20,9 +21,11 @@ const Register = () => {
       const user = result.user;
       handleUpdateUserProfile(name,photoURL)
       console.log(user);
+      toast.success('Your Registration Success')
     })
     .catch(error => {
-      console.log(error);
+      // console.log(error);
+      toast.error(error.message)
     })
   }
 
