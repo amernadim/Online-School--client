@@ -7,10 +7,12 @@ import Blog from "../../components/Blog/Blog";
 import Login from "../../components/Login/Login";
 import Register from "../../components/Login/Register";
 import CourseDetails from "../../components/Courses/CourseDetails";
+import ErrorPage from "../../components/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {path : '/' , 
    element : <Main/> ,
+   errorElement: <ErrorPage/>  ,
    children : [
       {path : '/' , element : <Home/> },
       {path : '/home' , element : <Home/>},
