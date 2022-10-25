@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo/logo.png";
+import { AuthContext } from "../../context/AuthProvider";
 
 const NavBar = () => {
+  const {user} = useContext(AuthContext)
+  // console.log(user.photoURL);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className="p-4 dark:bg-gray-800 dark:text-gray-100 w-11/12 mx-auto">
@@ -63,14 +66,18 @@ const NavBar = () => {
           </button>
         </Link>
 
-        <Link to="#" className="items-center flex-shrink-0 hidden lg:flex">
-          <img className="h-8 rounded-lg" src={logo} alt="" title="Name" />
+        {
+          user?.photoURL ? 
+          <Link to="#" className="items-center flex-shrink-0 hidden lg:flex">
+          <img className="h-8 rounded-lg" src={user?.photoURL } alt="#" title={user.displayName} />
         </Link>
+        : <p>di</p>
+        }
 
         <div className="items-center flex-shrink-0 hidden lg:flex">
           <label
             htmlFor="Toggle1"
-            className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
+            className="inline-flex items-center space-x-4 cursor-pointer "
           >
             <span className="font-semibold">Light</span>
             <span className="relative">
