@@ -2,11 +2,23 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo/logo.png";
 import { AuthContext } from "../../context/AuthProvider";
+import { UserCircleIcon } from "@heroicons/react/24/solid";
+import toast from "react-hot-toast";
 
 const NavBar = () => {
-  const {user} = useContext(AuthContext)
-  // console.log(user.photoURL);
+  const { user, logOut } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Log Out Success");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
   return (
     <header className="p-4 dark:bg-gray-800 dark:text-gray-100 w-11/12 mx-auto">
       <div className="container flex justify-between h-16 mx-auto">
@@ -60,19 +72,43 @@ const NavBar = () => {
           </ul>
         </div>
 
-        <Link to="/login" className="items-center flex-shrink-0 hidden lg:flex">
-          <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
-            Log in
-          </button>
-        </Link>
+        {user?.uid ? (
+          <div className="items-center flex-shrink-0 hidden lg:flex">
+            {user?.photoURL ? (
+              <Link to="#">
+                <img
+                  className="h-8 rounded-lg"
+                  src={user?.photoURL}
+                  alt="#"
+                  title={user.displayName}
+                />
+              </Link>
+            ) : (
+              <UserCircleIcon className="h-8 " />
+            )}
+          </div>
+        ) : (
+          <Link
+            to="/login"
+            className="items-center flex-shrink-0 hidden lg:flex"
+          >
+            <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
+              Log in
+            </button>
+          </Link>
+        )}
 
-        {
-          user?.photoURL ? 
-          <Link to="#" className="items-center flex-shrink-0 hidden lg:flex">
-          <img className="h-8 rounded-lg" src={user?.photoURL } alt="#" title={user.displayName} />
-        </Link>
-        : <p>di</p>
-        }
+        {user?.uid && (
+          <Link
+            onClick={handleLogOut}
+            to="/login"
+            className="items-center flex-shrink-0 hidden lg:flex"
+          >
+            <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
+              Log out
+            </button>
+          </Link>
+        )}
 
         <div className="items-center flex-shrink-0 hidden lg:flex">
           <label
@@ -176,36 +212,50 @@ const NavBar = () => {
                         Blog
                       </Link>
                     </li>
+
                     <li className="flex">
-                      <Link
-                        rel="noopener noreferrer"
-                        to="/login"
-                        className="items-center"
-                      >
-                        <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
-                          Log in
-                        </button>
-                      </Link>
+                      {user?.uid ? (
+                        <div>
+                          {user?.photoURL ? (
+                            <Link to="#">
+                              <img
+                                className="h-8 rounded-lg mx-3"
+                                src={user?.photoURL}
+                                alt="#"
+                                title={user.displayName}
+                              />
+                            </Link>
+                          ) : (
+                            <UserCircleIcon className="h-8 " />
+                          )}
+                        </div>
+                      ) : (
+                        <Link to="/login" className="">
+                          <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
+                            Log in
+                          </button>
+                        </Link>
+                      )}
                     </li>
 
                     <li className="flex">
-                      <Link
-                        rel="noopener noreferrer"
-                        to="/home"
-                        className="items-center"
-                      >
-                        <img
-                          className="h-8 rounded-lg"
-                          src={logo}
-                          alt="#"
-                          title="Name"
-                        />
-                      </Link>
+                      {user?.uid && (
+                        <Link
+                          onClick={handleLogOut}
+                          to="/login"
+                          className=""
+                        >
+                          <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
+                            Log out
+                          </button>
+                        </Link>
+                      )}
                     </li>
-                    <li>
+
+                    <li className="flex mx-3">
                       <label
                         htmlFor="Toggle1"
-                        className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
+                        className="inline-flex items-center space-x-4 cursor-pointer"
                       >
                         <span className="font-semibold">Light</span>
                         <span className="relative">
