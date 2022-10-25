@@ -20,7 +20,7 @@ const NavBar = () => {
   };
 
   return (
-    <header className="p-4 dark:bg-gray-800 dark:text-gray-100 w-11/12 mx-auto">
+    <header className="p-4 bg-gray-100 dark:text-gray-100 w-12/12 mx-auto">
       <div className="container flex justify-between h-16 mx-auto">
         <div className="flex">
           <Link
@@ -240,11 +240,7 @@ const NavBar = () => {
 
                     <li className="flex">
                       {user?.uid && (
-                        <Link
-                          onClick={handleLogOut}
-                          to="/login"
-                          className=""
-                        >
+                        <Link onClick={handleLogOut} to="/login" className="">
                           <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
                             Log out
                           </button>
@@ -254,13 +250,13 @@ const NavBar = () => {
 
                     <li className="flex mx-3">
                       <label
-                        htmlFor="Toggle1"
-                        className="inline-flex items-center space-x-4 cursor-pointer"
+                        htmlFor="Toggle2"
+                        className="inline-flex items-center space-x-4 cursor-pointer "
                       >
                         <span className="font-semibold">Light</span>
                         <span className="relative">
                           <input
-                            id="Toggle1"
+                            id="Toggle2"
                             type="checkbox"
                             className="hidden peer"
                           />

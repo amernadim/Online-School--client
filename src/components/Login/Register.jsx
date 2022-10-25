@@ -44,7 +44,7 @@ const Register = () => {
   return (
     <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-blue-400  text-black mx-auto">
 	<div className="mb-8 text-center">
-		<h1 className="my-3 text-4xl font-bold">Register Form</h1>
+		<h1 className="my-3 text-4xl font-bold">Registration Form</h1>
 	</div>
 	<form onSubmit={handleSubmit} className="space-y-12 ng-untouched ng-pristine ng-valid">
 		<div className="space-y-4">
