@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
+
 
 const Login = () => {
+  const {signIn} = useContext(AuthContext);
+
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email,password);
+    // console.log(email,password);
+    signIn(email,password)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      toast.success('Login Success')
+    }) 
+    .catch(error => {
+      console.log(error);
+      toast.error(error.message)
+    })
   }
 
   return (
