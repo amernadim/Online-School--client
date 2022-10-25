@@ -1,19 +1,18 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
-import { BeakerIcon,PrinterIcon } from '@heroicons/react/24/solid'
+import { Link, useLoaderData } from "react-router-dom";
+import { PrinterIcon } from '@heroicons/react/24/solid'
 
 const CourseDetails = () => {
   const course = useLoaderData();
+  
   // console.log(course);
   const { id, title, img, fee, desciption, video } = course;
   return (
-    <div className="w-10/12 mx-auto">
+    <div className="w-10/12 mx-auto mt-[95px]">
     
       <h2 className="text-3xl font-semibold text-center">
         Course Name : {title}
       </h2>
-      
-    
       <figure className="px-10 pt-10">
         <img src={img} alt="Course" className="rounded-xl mx-auto" />
       </figure>
@@ -26,7 +25,9 @@ const CourseDetails = () => {
         <div className="card-actions">
           <button className="btn btn-md bg-blue-600 mt-3">Download <PrinterIcon className="ml-3 h-6 w-6 text-white"/></button>
 
+          <Link to={`/cheakout/${id}`}>
           <button className="btn btn-md bg-blue-400 text-black mt-3">Get Premium Access</button>
+          </Link>
         </div>
       </div>
     </div>

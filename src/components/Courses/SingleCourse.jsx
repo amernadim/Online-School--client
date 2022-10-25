@@ -7,7 +7,7 @@ const SingleCourse = ({ course }) => {
 
   return (
     // course title
-    <div>
+    <div className="">
       <ul>
         <li className="mt-4 font-bold text-center">
           <Link to={`/details/${id}`}>{title}</Link>

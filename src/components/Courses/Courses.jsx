@@ -1,6 +1,5 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { Link } from "react-router-dom";
 import SingleCourse from "../../components/Courses/SingleCourse";
 import SingleCourseCard from "../../components/Courses/SingleCourseCard";
 
@@ -8,7 +7,7 @@ const Courses = () => {
   const courses = useLoaderData();
 
   return (
-    <div>
+    <div className='mt-[95px]'>
       <h2 className='text-center text-4xl font-bold'>Courses</h2>
 
       <div className='md:grid md:grid-cols-4 grid-flow-col gap-4 w-10/12 mx-auto my-4'>

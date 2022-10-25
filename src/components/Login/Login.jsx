@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 
 const Login = () => {
   const {signIn , googleSignIn,githubSingIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation() ;
+  const from = location.state?.from?.pathname || '/' ;
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -20,7 +22,7 @@ const Login = () => {
       const user = result.user;
       console.log(user);
       toast.success('Login Success');
-      navigate('/courses')
+      navigate(from ,{replace : true}) ;
 
     }) 
     .catch(error => {
@@ -34,7 +36,7 @@ const Login = () => {
     .then(result => {
       const user = result.user;
       toast.success('Sign in with Google success');
-      navigate('/courses')
+      navigate(from ,{replace : true})
       console.log(user);
     })
     .catch(error => {
@@ -48,6 +50,7 @@ const Login = () => {
     .then(result => {
       const user = result.user;
       toast.success('Sign in with github success');
+      navigate(from ,{replace : true})
       console.log(user);
     }) 
     .catch(error => {
@@ -57,7 +60,7 @@ const Login = () => {
   }
 
   return (
-    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-blue-400 text-black mx-auto">
+    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-blue-400 text-black mx-auto mt-[99px]">
 	<h1 className="text-2xl font-bold text-center">Please Login</h1>
 	<form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
 		<div className="space-y-1 text-sm">

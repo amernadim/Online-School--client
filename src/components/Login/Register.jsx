@@ -42,7 +42,7 @@ const Register = () => {
   }
 
   return (
-    <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-blue-400  text-black mx-auto">
+    <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-blue-400  text-black mx-auto mt-[99px]">
 	<div className="mb-8 text-center">
 		<h1 className="my-3 text-4xl font-bold">Registration Form</h1>
 	</div>
