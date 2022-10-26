@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { ArrowDownCircleIcon } from '@heroicons/react/24/solid';
-import ReactDOM from "react-dom";
 import ReactToPdf from "react-to-pdf";
 
 
@@ -34,7 +33,6 @@ const CourseDetails = () => {
           <ReactToPdf targetRef={ref} filename="div-blue.pdf">
         {({toPdf}) => (
             <button onClick={toPdf} className="btn btn-md bg-blue-600 mt-3">Download <ArrowDownCircleIcon className="ml-3 h-6 w-6 text-white"/></button>
-
         )}
        </ReactToPdf>
 
