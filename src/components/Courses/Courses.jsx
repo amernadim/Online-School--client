@@ -20,7 +20,7 @@ const Courses = () => {
           }
         </div>
 
-        <div className='md:col-span-1 mt-4 bg-blue-400 text-white h-72 rounded-lg pt-2'>
+        <div className='md:col-span-1  h-72 rounded-lg pt-2'>
           {
             courses.map(course => <SingleCourse
             key={course.id}

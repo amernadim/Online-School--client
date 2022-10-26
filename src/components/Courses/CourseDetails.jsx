@@ -4,8 +4,6 @@ import { ArrowDownCircleIcon } from '@heroicons/react/24/solid';
 import ReactToPdf from "react-to-pdf";
 
 
-
-
 const CourseDetails = () => {
   const course = useLoaderData();
 
