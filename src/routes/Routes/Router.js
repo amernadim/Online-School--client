@@ -19,17 +19,17 @@ export const router = createBrowserRouter([
       {path : '/' , element : <Home/> },
       {path : '/home' , element : <Home/>},
       {path : '/courses' , element : <Courses/>, 
-      loader : () => fetch('http://localhost:5000/allCourses')
+      loader : () => fetch('https://online-school-server-amernadim.vercel.app/allCourses')
       },
       {path : '/faq' , element : <Faq/>},
       {path : '/blog' , element : <Blog/>},
       {path : '/login' , element : <Login/>},
       {path : '/register' , element : <Register/>},
       {path : '/details/:id' , element : <CourseDetails/>,
-      loader : ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+      loader : ({params}) => fetch(`https://online-school-server-amernadim.vercel.app/course/${params.id}`)
       },
       {path : '/cheakout/:id' , element : <PrivateRoute><Cheakout/></PrivateRoute>,
-      loader : ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+      loader : ({params}) => fetch(`https://online-school-server-amernadim.vercel.app/course/${params.id}`)
       }
 
   ]}
