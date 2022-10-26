@@ -30,11 +30,13 @@ const NavBar = () => {
             aria-label="Back to homepage"
             className="flex items-center p-2 "
           >
+            {/* website logo and name */}
             <img className="h-8" src={logo} alt="Logo" />
             <span className="ml-2 text-2xl font-bold">Online School</span>
           </Link>
           <ul className="items-stretch hidden space-x-3 lg:flex">
             <li className="flex">
+              {/* Nav link */}
               <Link
                 rel="noopener noreferrer"
                 to="/home"

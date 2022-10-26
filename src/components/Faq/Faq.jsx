@@ -10,7 +10,8 @@ const Faq = () => {
           </h2>
           <div className="space-y-4">
             <details className="w-full border rounded-lg">
-              <summary className="px-4 py-6 focus:outline-none focus-visible:ring-violet-400">
+              {/* Faq 1 */}
+              <summary className="px-4 py-6">
                When start Online School journey?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 ">
@@ -18,6 +19,7 @@ const Faq = () => {
               </p>
             </details>
             <details className="w-full border rounded-lg">
+                {/* Faq 2 */}
               <summary className="px-4 py-6 focus:outline-none ">
                 How Many students are currently studing?
               </summary>
@@ -26,6 +28,7 @@ const Faq = () => {
               </p>
             </details>
             <details className="w-full border rounded-lg">
+                {/* Faq 3 */}
               <summary className="px-4 py-6 focus:outline-none ">
                 What is the course of the course in front?
               </summary>

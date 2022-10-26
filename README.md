@@ -13,6 +13,7 @@
 - React Router Dom
 - Tailwind Css (Daisy ui)
 - Hero icon
+- aos
 - React Hot Toast
 - React To Pdf
    

@@ -10,6 +10,7 @@ const Login = () => {
   const location = useLocation() ;
   const from = location.state?.from?.pathname || '/' ;
 
+  // form submit 
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
@@ -17,6 +18,7 @@ const Login = () => {
     const password = form.password.value;
 
     // console.log(email,password);
+    // singIn
     signIn(email,password)
     .then(result => {
       const user = result.user;
@@ -30,7 +32,7 @@ const Login = () => {
       toast.error(error.message)
     })
   }
-
+  // google sign in
   const handleGoogleSignIn = () => {
     googleSignIn()
     .then(result => {
@@ -44,7 +46,7 @@ const Login = () => {
       toast.error(error.message)
     })
   }
-
+  // github sign in
   const handleGithubSignIn = () => {
     githubSingIn()
     .then(result => {
@@ -63,23 +65,29 @@ const Login = () => {
     <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-blue-400 text-black mx-auto mt-[99px]">
 	<h1 className="text-2xl font-bold text-center">Please Login</h1>
 	<form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
+
+    {/* Email */}
 		<div className="space-y-1 text-sm">
 			<label htmlFor="email" className="block font-semibold">Email</label>
-			<input type="email" name="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required/>
+			<input type="email" name="email" placeholder="Email" className="w-full px-4 py-3 rounded-md" required/>
 		</div>
+
+    {/* password */}
 		<div className="space-y-1 text-sm">
 			<label htmlFor="password" className="block font-semibold">Password</label>
-			<input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required/>
+			<input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md " required/>
 			<div className="flex justify-end text-xs font-semibold">
 				<Link rel="noopener noreferrer" to="#">Forgot Password?</Link>
 			</div>
 		</div>
+
+    {/* login button */}
     <button type="submit" className="btn btn-wide w-full px-8 py-3 font-semibold rounded-md  ">Log in</button>
 	</form>
 	<div className="flex items-center pt-4 space-x-1">
-		<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-		<p className="px-3 text-sm dark:text-gray-400">Login with social accounts</p>
-		<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+		<div className="flex-1 h-px sm:w-16 "></div>
+		<p className="px-3 text-sm ">Login with social accounts</p>
+		<div className="flex-1 h-px sm:w-16 "></div>
 	</div>
 	<div className="flex justify-center space-x-4">
 		<button onClick={handleGoogleSignIn} aria-label="Log in with Google" className="p-3 rounded-sm">
@@ -93,7 +101,7 @@ const Login = () => {
 			</svg>
 		</button>
 	</div>
-	<p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account?
+	<p className="text-xs text-center sm:px-6 ">Don't have an account?
 		<Link rel="noopener noreferrer" to="/register" className="underline text-gray-100"> Register</Link>
 	</p>
 </div>

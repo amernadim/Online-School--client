@@ -7,6 +7,7 @@ const Courses = () => {
   const courses = useLoaderData();
 
   return (
+    // Course Section
     <div className='mt-[95px]'>
       <h2 className='text-center text-4xl font-bold'>Courses</h2>
 
@@ -20,7 +21,7 @@ const Courses = () => {
           }
         </div>
 
-        <div className='md:col-span-1  h-72 rounded-lg pt-2'>
+        <div className='md:col-span-1 rounded-lg pt-2'>
           {
             courses.map(course => <SingleCourse
             key={course.id}

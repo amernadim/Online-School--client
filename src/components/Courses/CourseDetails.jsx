@@ -14,6 +14,7 @@ const CourseDetails = () => {
   return (
     <div className=" mx-auto mt-[95px] " ref={ref}>
       <div>
+        {/* Coures Details */}
       <h2 className="text-3xl font-semibold text-center">
         Course Name : {title}
       </h2>
@@ -27,13 +28,14 @@ const CourseDetails = () => {
           <p className="text-xl font-bold">Videos : {video} </p>
         </div>
         <div className="card-actions mx-auto">
-
+         {/* Pdf Button */}
           <ReactToPdf targetRef={ref} filename="div-blue.pdf">
         {({toPdf}) => (
             <button onClick={toPdf} className="btn btn-md bg-blue-600 mt-3">Download <ArrowDownCircleIcon className="ml-3 h-6 w-6 text-white"/></button>
         )}
        </ReactToPdf>
-
+       
+          {/* private route get primium access */}
           <Link to={`/cheakout/${id}`}>
           <button className="btn btn-md bg-blue-400 text-black mt-3">Get Premium Access</button>
           </Link>
