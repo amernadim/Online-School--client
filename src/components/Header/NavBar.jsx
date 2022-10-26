@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  // console.log(user?.photoURL);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogOut = () => {
@@ -57,7 +58,7 @@ const NavBar = () => {
                 to="/faq"
                 className="flex items-center px-4 font-semibold hover:text-blue-400 rounded-lg hover:text-blue-400"
               >
-                Faq
+                FaQ
               </Link>
             </li>
             <li className="flex">
@@ -101,7 +102,7 @@ const NavBar = () => {
         {user?.uid && (
           <Link
             onClick={handleLogOut}
-            to="/login"
+            to=""
             className="items-center flex-shrink-0 hidden lg:flex"
           >
             <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
@@ -200,7 +201,7 @@ const NavBar = () => {
                         to="/faq"
                         className="flex items-center px-4 font-semibold hover:text-blue-400"
                       >
-                        Faq
+                       FaQ
                       </Link>
                     </li>
                     <li className="flex">
@@ -217,6 +218,7 @@ const NavBar = () => {
                       {user?.uid ? (
                         <div>
                           {user?.photoURL ? (
+                          
                             <Link to="#">
                               <img
                                 className="h-8 rounded-lg mx-3"
@@ -240,7 +242,7 @@ const NavBar = () => {
 
                     <li className="flex">
                       {user?.uid && (
-                        <Link onClick={handleLogOut} to="/login" className="">
+                        <Link onClick={handleLogOut} to="" className="">
                           <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
                             Log out
                           </button>
