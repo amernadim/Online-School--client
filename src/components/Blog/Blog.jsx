@@ -8,7 +8,7 @@ const Blog = () => {
       <div className="grid gap-5 md:grid-cols-2 p-4 lg:px-12 xl:px-32 mx-auto">
         {/* Question 1 */}
         <div className="bg-blue-300 p-3 rounded-lg" data-aos="fade-up">
-          <h3 className="font-semibold">What is cors ?</h3>
+          <h3 className="font-semibold">Q1 : What is cors ?</h3>
           <p className="mt-1 ">
             Cross-Origin Resource Sharing (CORS) is an HTTP-header based
             mechanism that allows a server to indicate any origins (domain,
@@ -24,7 +24,7 @@ const Blog = () => {
         {/* Question 2 */}
         <div className="bg-blue-300 p-3 rounded-lg" data-aos="fade-down">
           <h3 className="font-semibold ">
-            Why are you using firebase? what other option do you have to
+           Q2 : Why are you using firebase? what other option do you have to
             implement authentication ?
           </h3>
           <p className="mt-1 ">
@@ -39,9 +39,9 @@ const Blog = () => {
         </div>
         {/* Question 3 */}
         <div className="bg-blue-300 p-3 rounded-lg" data-aos="fade-up">
-          <h3 className="font-semibold">How does the Privater Route Work?</h3>
+          <h3 className="font-semibold">Q3 : How does the Privater Route Work?</h3>
           <p className="mt-1">
-            The react private route component renders child components (
+           The react private route component renders child components (
             children ) if the user is logged in. If not logged in the user is
             redirected to the /login page with the return url passed in the
             location state property.
@@ -49,7 +49,7 @@ const Blog = () => {
         </div>
         {/* Question 4 */}
         <div className="bg-blue-300 p-3 rounded-lg" data-aos="fade-down">
-          <h3 className="font-semibold">What is Node ? How does Node Work?</h3>
+          <h3 className="font-semibold">Q4 : What is Node ? How does Node Work?</h3>
           <p className="mt-1">
             It is a used as backend service where javascript works on the
             server-side of the application. This way javascript is used on both

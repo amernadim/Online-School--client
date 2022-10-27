@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/Logo/logo.png";
 import { AuthContext } from "../../context/AuthProvider";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import toast from "react-hot-toast";
 
 const NavBar = () => {
+  const active = "text-blue-400";
   const { user, logOut } = useContext(AuthContext);
   // console.log(user?.photoURL);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,10 +22,10 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="bg-gray-100 mx-auto w-full fixed top-0 z-10">
+    <nav className="bg-gray-100 px-8 mx-auto w-full fixed top-0 z-10">
       <div className="container flex justify-between h-16 mx-auto">
         <div className="flex">
-          <Link
+          <NavLink
             rel="noopener noreferrer"
             to="/"
             aria-label="Back to homepage"
@@ -33,44 +34,52 @@ const NavBar = () => {
             {/* website logo and name */}
             <img className="h-8" src={logo} alt="Logo" />
             <span className="ml-2 text-2xl font-bold">Online School</span>
-          </Link>
+          </NavLink>
           <ul className="items-stretch hidden space-x-3 lg:flex">
             <li className="flex">
-              {/* Nav link */}
-              <Link
+              {/* Nav NavLink */}
+              <NavLink
                 rel="noopener noreferrer"
                 to="/home"
-                className="flex items-center px-4 font-semibold hover:text-blue-400"
+                className="flex items-center px-5 font-semibold"
               >
-                Home
-              </Link>
+                {({ isActive }) => (
+                  <span className={isActive ? active : undefined}>Home</span>
+                )}
+              </NavLink>
             </li>
             <li className="flex">
-              <Link
+              <NavLink
                 rel="noopener noreferrer"
                 to="/courses"
-                className="flex items-center px-4 font-semibold hover:text-blue-400"
+                className="flex items-center px-4 font-semibold "
               >
-                Courses
-              </Link>
+                {({ isActive }) => (
+                  <span className={isActive ? active : undefined}>Courses</span>
+                )}
+              </NavLink>
             </li>
             <li className="flex">
-              <Link
+              <NavLink
                 rel="noopener noreferrer"
                 to="/faq"
-                className="flex items-center px-4 font-semibold hover:text-blue-400 rounded-lg hover:text-blue-400"
+                className="flex items-center px-4 font-semibold rounded-lg "
               >
-                FaQ
-              </Link>
+                {({ isActive }) => (
+                  <span className={isActive ? active : undefined}>FaQ</span>
+                )}
+              </NavLink>
             </li>
             <li className="flex">
-              <Link
+              <NavLink
                 rel="noopener noreferrer"
                 to="blog"
-                className="flex items-center px-4 font-semibold hover:text-blue-400"
+                className="flex items-center px-4 font-semibold "
               >
-                Blog
-              </Link>
+                {({ isActive }) => (
+                  <span className={isActive ? active : undefined}>Blog</span>
+                )}
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -78,31 +87,31 @@ const NavBar = () => {
         {user?.uid ? (
           <div className="items-center flex-shrink-0 hidden lg:flex">
             {user?.photoURL ? (
-              <Link to="#">
+              <NavLink to="#">
                 <img
                   className="h-8 rounded-lg"
                   src={user?.photoURL}
                   alt="#"
                   title={user.displayName}
                 />
-              </Link>
+              </NavLink>
             ) : (
               <UserCircleIcon className="h-8 " />
             )}
           </div>
         ) : (
-          <Link
+          <NavLink
             to="/login"
             className="items-center flex-shrink-0 hidden lg:flex"
           >
             <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
               Log in
             </button>
-          </Link>
+          </NavLink>
         )}
 
         {user?.uid && (
-          <Link
+          <NavLink
             onClick={handleLogOut}
             to=""
             className="items-center flex-shrink-0 hidden lg:flex"
@@ -110,7 +119,7 @@ const NavBar = () => {
             <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
               Log out
             </button>
-          </Link>
+          </NavLink>
         )}
 
         <div className="items-center flex-shrink-0 hidden lg:flex">
@@ -155,12 +164,12 @@ const NavBar = () => {
               <div className="p-5 bg-white border rounded shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <Link to="/" className="inline-flex items-center">
+                    <NavLink to="/" className="inline-flex items-center">
                       <img className="h-8" src={logo} alt="Logo" />
                       <span className="ml-2 text-2xl font-bold">
                         Online School
                       </span>
-                    </Link>
+                    </NavLink>
                   </div>
                   <div>
                     <button
@@ -180,75 +189,82 @@ const NavBar = () => {
                 <nav>
                   <ul className="space-y-4">
                     <li className="flex">
-                      <Link
+                      <NavLink
                         rel="noopener noreferrer"
                         to="/home"
-                        className="flex items-center px-4 font-semibold hover:text-blue-400"
+                        className="flex items-center px-4 font-semibold "
                       >
-                        Home
-                      </Link>
+                         {({ isActive }) => (
+                  <span className={isActive ? active : undefined}>Home</span>
+                )}
+                      </NavLink>
                     </li>
                     <li className="flex">
-                      <Link
+                      <NavLink
                         rel="noopener noreferrer"
                         to="/courses"
-                        className="flex items-center px-4 font-semibold hover:text-blue-400"
+                        className="flex items-center px-4 font-semibold "
                       >
-                        Courses
-                      </Link>
+                        {({ isActive }) => (
+                  <span className={isActive ? active : undefined}>Courses</span>
+                )}
+                      </NavLink>
                     </li>
                     <li className="flex">
-                      <Link
+                      <NavLink
                         rel="noopener noreferrer"
                         to="/faq"
-                        className="flex items-center px-4 font-semibold hover:text-blue-400"
+                        className="flex items-center px-4 font-semibold "
                       >
-                       FaQ
-                      </Link>
+                       {({ isActive }) => (
+                  <span className={isActive ? active : undefined}>FaQ</span>
+                )}
+                      </NavLink>
                     </li>
                     <li className="flex">
-                      <Link
+                      <NavLink
                         rel="noopener noreferrer"
                         to="blog"
-                        className="flex items-center px-4 font-semibold hover:text-blue-400"
+                        className="flex items-center px-4 font-semibold "
                       >
-                        Blog
-                      </Link>
+                        {({ isActive }) => (
+                  <span className={isActive ? active : undefined}>Blog</span>
+                )}
+                      </NavLink>
                     </li>
 
                     <li className="flex">
                       {user?.uid ? (
                         <div>
                           {user?.photoURL ? (
-                          
-                            <Link to="#">
+                            <NavLink to="#">
                               <img
                                 className="h-8 rounded-lg mx-3"
                                 src={user?.photoURL}
                                 alt="#"
                                 title={user.displayName}
                               />
-                            </Link>
+                            </NavLink>
                           ) : (
                             <UserCircleIcon className="h-8 " />
                           )}
                         </div>
                       ) : (
-                        <Link to="/login" className="">
+                        <NavLink to="/login" className="">
                           <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
                             Log in
                           </button>
-                        </Link>
+                        </NavLink>
                       )}
                     </li>
 
                     <li className="flex">
                       {user?.uid && (
-                        <Link onClick={handleLogOut} to="" className="">
+                        <NavLink onClick={handleLogOut} to="" className="">
                           <button className="px-8  font-semibold rounded bg-blue-400 text-white btn-sm">
                             Log out
                           </button>
-                        </Link>
+                        </NavLink>
                       )}
                     </li>
 
