@@ -1,11 +1,14 @@
 import React from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+
 
 const Faq = () => {
   return (
-    <div className="mt-[95px]">
+    <div className="mt-[95px] " data-aos="zoom-out-right">
       <section className="">
         <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
-          <h2 className="text-2xl font-semibold sm:text-4xl my-2">
+          <h2 className="text-xl font-semibold sm:text-4xl my-2">
           Some Question's Answer For This Online School
           </h2>
           <div className="space-y-4">
@@ -42,5 +45,7 @@ const Faq = () => {
     </div>
   );
 };
+
+AOS.init();
 
 export default Faq;

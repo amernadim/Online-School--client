@@ -79,8 +79,8 @@ const Footer = () => {
         </ul>
       </div>
       {/* copy right */}
-        <div className="mx-auto w-11/12 text-center">
-        <span className="font-bold">All rights reserved by Online School</span> 
+        <div className="text-center mt-3">
+        <span className="font-semibold">All rights reserved by Online School</span> 
         </div>
     </footer>
   );

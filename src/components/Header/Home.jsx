@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import toast from 'react-hot-toast';
+import AOS from 'aos';
 
 const Home = () => {
   return (
-    <section className="bg-blue-400 text-gray-100">
+    <section className="bg-blue-400 text-gray-100 mt-[65px]" data-aos="fade-down">
 	<div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-16 h-16 dark:text-violet-400">
 			<polygon points="328.375 384 332.073 458.999 256.211 406.28 179.924 459.049 183.625 384 151.586 384 146.064 496 182.756 496 256.169 445.22 329.242 496 365.936 496 360.414 384 328.375 384"></polygon>
@@ -30,5 +30,7 @@ const Home = () => {
 </section>
   );
 };
+
+AOS.init();
 
 export default Home;

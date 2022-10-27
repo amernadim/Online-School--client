@@ -21,7 +21,7 @@ const NavBar = () => {
   };
 
   return (
-    <header className="p-4 bg-gray-100 w-full mx-auto fixed top-0 z-10">
+    <nav className="bg-gray-100 mx-auto w-full fixed top-0 z-10">
       <div className="container flex justify-between h-16 mx-auto">
         <div className="flex">
           <Link
@@ -277,7 +277,7 @@ const NavBar = () => {
           )}
         </div>
       </div>
-    </header>
+    </nav>
   );
 };
 

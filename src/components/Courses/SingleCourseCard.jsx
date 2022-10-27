@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+
 
 const SingleCourseCard = ({course}) => {
   const { id, title, img, fee, desciption, video } = course;
@@ -11,8 +11,8 @@ const SingleCourseCard = ({course}) => {
   }
   return (
     // course card
-    <div onClick={() => handleNavigate(id)} className="card w-full bg-base-100 shadow-xl">
-    <div className="card-body" data-aos="zoom-out">
+    <div onClick={() => handleNavigate(id)} className="card w-full bg-base-100 shadow-xl" data-aos="zoom-out-down">
+    <div className="card-body">
       <h2 className="card-title text-2xl">{title}</h2>
       <p className='text-xl'>{desciption}</p>
       <div className='flex flex-wrap'>
