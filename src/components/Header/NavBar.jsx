@@ -73,7 +73,7 @@ const NavBar = () => {
             <li className="flex">
               <NavLink
                 rel="noopener noreferrer"
-                to="blog"
+                to="/blog"
                 className="flex items-center px-4 font-semibold "
               >
                 {({ isActive }) => (
@@ -81,12 +81,27 @@ const NavBar = () => {
                 )}
               </NavLink>
             </li>
+            {user?.uid && (
+              <li className="flex">
+                <NavLink
+                  rel="noopener noreferrer"
+                  to="/profile"
+                  className="flex items-center px-4 font-semibold "
+                >
+                  {({ isActive }) => (
+                    <span className={isActive ? active : undefined}>
+                      Profile
+                    </span>
+                  )}
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
 
         {user?.uid ? (
           <div className="items-center flex-shrink-0 hidden lg:flex">
-            {user?.photoURL ? (
+            {user?.photoURL && (
               <NavLink to="#">
                 <img
                   className="h-8 rounded-lg"
@@ -95,9 +110,7 @@ const NavBar = () => {
                   title={user.displayName}
                 />
               </NavLink>
-            ) : (
-              <UserCircleIcon className="h-8 " />
-            )}
+            ) }
           </div>
         ) : (
           <NavLink
@@ -194,9 +207,11 @@ const NavBar = () => {
                         to="/home"
                         className="flex items-center px-4 font-semibold "
                       >
-                         {({ isActive }) => (
-                  <span className={isActive ? active : undefined}>Home</span>
-                )}
+                        {({ isActive }) => (
+                          <span className={isActive ? active : undefined}>
+                            Home
+                          </span>
+                        )}
                       </NavLink>
                     </li>
                     <li className="flex">
@@ -206,8 +221,10 @@ const NavBar = () => {
                         className="flex items-center px-4 font-semibold "
                       >
                         {({ isActive }) => (
-                  <span className={isActive ? active : undefined}>Courses</span>
-                )}
+                          <span className={isActive ? active : undefined}>
+                            Courses
+                          </span>
+                        )}
                       </NavLink>
                     </li>
                     <li className="flex">
@@ -216,9 +233,11 @@ const NavBar = () => {
                         to="/faq"
                         className="flex items-center px-4 font-semibold "
                       >
-                       {({ isActive }) => (
-                  <span className={isActive ? active : undefined}>FaQ</span>
-                )}
+                        {({ isActive }) => (
+                          <span className={isActive ? active : undefined}>
+                            FaQ
+                          </span>
+                        )}
                       </NavLink>
                     </li>
                     <li className="flex">
@@ -228,15 +247,33 @@ const NavBar = () => {
                         className="flex items-center px-4 font-semibold "
                       >
                         {({ isActive }) => (
-                  <span className={isActive ? active : undefined}>Blog</span>
-                )}
+                          <span className={isActive ? active : undefined}>
+                            Blog
+                          </span>
+                        )}
                       </NavLink>
                     </li>
+
+                    {user?.uid && (
+                      <li className="flex">
+                        <NavLink
+                          rel="noopener noreferrer"
+                          to="/profile"
+                          className="flex items-center px-4 font-semibold "
+                        >
+                          {({ isActive }) => (
+                            <span className={isActive ? active : undefined}>
+                              Profile
+                            </span>
+                          )}
+                        </NavLink>
+                      </li>
+                    )}
 
                     <li className="flex">
                       {user?.uid ? (
                         <div>
-                          {user?.photoURL ? (
+                          {user?.photoURL && (
                             <NavLink to="#">
                               <img
                                 className="h-8 rounded-lg mx-3"
@@ -245,9 +282,7 @@ const NavBar = () => {
                                 title={user.displayName}
                               />
                             </NavLink>
-                          ) : (
-                            <UserCircleIcon className="h-8 " />
-                          )}
+                          ) }
                         </div>
                       ) : (
                         <NavLink to="/login" className="">

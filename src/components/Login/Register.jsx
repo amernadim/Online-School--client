@@ -22,6 +22,7 @@ const Register = () => {
       const user = result.user;
       handleUpdateUserProfile(name,photoURL)
       console.log(user);
+      form.reset()
       toast.success('Your Registration Success')
     })
     .catch(error => {

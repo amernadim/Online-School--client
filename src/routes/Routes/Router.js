@@ -10,6 +10,7 @@ import CourseDetails from "../../components/Courses/CourseDetails";
 import ErrorPage from "../../components/ErrorPage/ErrorPage";
 import Cheakout from "../../components/Courses/Cheakout";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
+import Profile from "../../components/Profile/Profile";
 
 export const router = createBrowserRouter([
   {path : '/' , 
@@ -30,7 +31,8 @@ export const router = createBrowserRouter([
       },
       {path : '/cheakout/:id' , element : <PrivateRoute><Cheakout/></PrivateRoute>,
       loader : ({params}) => fetch(`https://online-school-server-amernadim.vercel.app/course/${params.id}`)
-      }
+      },
+      {path : '/profile' , element : <Profile/>}
 
   ]}
 ])
